@@ -7,13 +7,17 @@ const ArticleList = ({ articles, onSelect, onAdd }) => {
   return (
     <div className="article-list">
       <h2>All Articles</h2>
-      <ul>
-        {articles.map((article, index) => (
-          <li key={index} onClick={() => onSelect(index)}>
-            {article.title}
-          </li>
-        ))}
-      </ul>
+      {articles.length > 0 ? (
+        <ul>
+          {articles.map((article, index) => (
+            <li key={index} onClick={() => onSelect(index)}>
+              {article.title}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No articles available</p>
+      )}
       <Button className="add-article-button" onClick={onAdd}>
         Add New Article
       </Button>
