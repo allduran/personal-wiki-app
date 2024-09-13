@@ -11,23 +11,31 @@ html, body {
 
 .app {
   display: flex;
-  height: 100%; /* Full height of the viewport */
-  width: 100%; /* Full width of the viewport */
+  height: 100vh;
+  width: 100%;
 }
 
 .sidebar {
-  width: 15%; /* Sidebar takes 20% of the width */
-  background-color: #333;
-  padding: 20px;
-  border-right: 1px solid #333;
-  box-sizing: border-box; /* Include padding and border in the element's total width */
-  height: 100%; /* Full height */
-  overflow-y: auto; /* Allow scrolling if content overflows */
+  width: 15%;
+  background: #333;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .main-content {
-  width: 85%; /* Main content takes 80% of the width */
+  width: 85%;
   padding: 20px;
-  box-sizing: border-box; /* Include padding in the element's total width */
-  height: 100%; /* Full height */
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.welcome-page {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+}
+
+.add-article-button {
+  margin-top: auto;
 }

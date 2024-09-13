@@ -32,7 +32,23 @@ const App = () => {
     setIsEditing(false);
   };
 
+  const handleAddArticle = () => {
+    setSelectedArticleIndex(null);
+    setIsEditing(true);
+  };
+
   const renderContent = () => {
+    if (isEditing) {
+      return (
+        <ArticleForm
+          article={
+            selectedArticleIndex !== null ? articles[selectedArticleIndex] : {}
+          }
+          onSave={saveArticle}
+        />
+      );
+    }
+
     if (selectedArticleIndex === null) {
       return (
         <div className="welcome-page">
@@ -41,12 +57,7 @@ const App = () => {
       );
     }
 
-    return isEditing ? (
-      <ArticleForm
-        article={articles[selectedArticleIndex]}
-        onSave={saveArticle}
-      />
-    ) : (
+    return (
       <ArticleView
         article={articles[selectedArticleIndex]}
         onEdit={() => setIsEditing(true)}
@@ -58,7 +69,11 @@ const App = () => {
     <>
       <div className="app">
         <div className="sidebar">
-          <ArticleList articles={articles} onSelect={selectArticle} />
+          <ArticleList
+            articles={articles}
+            onSelect={selectArticle}
+            onAdd={handleAddArticle}
+          />
         </div>
         <div className="main-content">{renderContent()}</div>
       </div>

@@ -1,0 +1,32 @@
+.article-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .article-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .article-list li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    cursor: pointer;
+    background-color: #333;
+    border-radius: 4px;
+  }
+
+  .article-list li:hover {
+    background-color: #ddd;
+    color: #333;
+  }
+  
+  .add-article-button {
+    margin-top: auto;
+  }
+  
