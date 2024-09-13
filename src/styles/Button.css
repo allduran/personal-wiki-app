@@ -1,5 +1,5 @@
 .button {
-    background-color: #007bff; /* Primary background color */
+    background-color: rgb(87, 164, 215); /* Primary background color */
     color: #fff; /* Text color */
     border: none; /* Remove default border */
     padding: 10px 20px; /* Add padding */
@@ -10,7 +10,7 @@
   }
   
   .button:hover {
-    background-color: #0056b3; /* Darker background on hover */
+    background-color: rgb(87, 164, 215); /* Darker background on hover */
   }
   
   .button:disabled {

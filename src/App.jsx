@@ -1,3 +1,4 @@
+// App.jsx
 import { useState, useEffect } from "react";
 import ArticleList from "./components/ArticleList";
 import ArticleForm from "./components/ArticleForm";
@@ -37,6 +38,13 @@ const App = () => {
     setIsEditing(true);
   };
 
+  const deleteArticle = () => {
+    const updatedArticles = articles.filter((_, index) => index !== selectedArticleIndex);
+    setArticles(updatedArticles);
+    saveArticles(updatedArticles);
+    setSelectedArticleIndex(null); // Reset selection after deletion
+  };
+
   const renderContent = () => {
     if (isEditing) {
       return (
@@ -61,23 +69,18 @@ const App = () => {
       <ArticleView
         article={articles[selectedArticleIndex]}
         onEdit={() => setIsEditing(true)}
+        onDelete={deleteArticle}  // Pass delete function to ArticleView
       />
     );
   };
 
   return (
-    <>
-      <div className="app">
-        <div className="sidebar">
-          <ArticleList
-            articles={articles}
-            onSelect={selectArticle}
-            onAdd={handleAddArticle}
-          />
-        </div>
-        <div className="main-content">{renderContent()}</div>
+    <div className="app">
+      <div className="sidebar">
+        <ArticleList articles={articles} onSelect={selectArticle} onAdd={handleAddArticle} />
       </div>
-    </>
+      <div className="main-content">{renderContent()}</div>
+    </div>
   );
 };
 

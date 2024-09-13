@@ -1,12 +1,19 @@
 // ArticleView.jsx
-import PropTypes from 'prop-types';
-import Button from './Button';
-import '../styles/ArticleView.css';
+import PropTypes from "prop-types";
+import Button from "./Button";
+import "../styles/ArticleView.css";
 
-const ArticleView = ({ article, onEdit }) => {
+const ArticleView = ({ article, onEdit, onDelete }) => {
   return (
     <div className="article-view">
-        <Button className="edit-button" onClick={onEdit}>Edit</Button>
+      <div className="button-group">
+        <Button className="edit-button" onClick={onEdit}>
+          Edit
+        </Button>
+        <Button className="delete-button" onClick={onDelete}>
+          Delete
+        </Button>
+      </div>
       <h2>{article.title}</h2>
       <p>{article.content}</p>
     </div>
@@ -19,6 +26,7 @@ ArticleView.propTypes = {
     content: PropTypes.string.isRequired,
   }).isRequired,
   onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ArticleView;
